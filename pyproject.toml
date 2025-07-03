@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "call-log-analyzer"
+version = "0.1.0"
+description = "Analyze SignalWire call logs."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name="Chad Phillips", email="chad@apartmentlines.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pandas",
+    "openpyxl",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["call_log_analyzer"]
+
+[project.scripts]
+call-log-analyzer = "call_log_analyzer.main:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "flake8",
+    "pyright",
+]
